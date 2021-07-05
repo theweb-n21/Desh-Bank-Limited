@@ -1,0 +1,50 @@
+/* ========================================================================================
+        common css
+=========================================================================================== */
+body{
+   margin: 0;
+   padding: 0; 
+   
+}
+#login-area{
+    width: 800px;
+    margin: 100px auto auto auto;
+}
+.submit-area{
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px gray;
+}
+#transaction-area{
+    display: none;
+    
+}
+#inner__transaction-area{
+    max-width: 800px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.blueviolet{
+    background-color: blueviolet;
+}
+.tomato{
+    background-color: tomato;
+}
+.green{
+    background-color: green;
+}
+.status{
+    width: 180px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+ 

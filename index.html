@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desh Bank Limited </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div id="login-area">
+            <h1 class="text-center">Welcome to Desh Bank.</h1>
+            <div class="submit-area">
+                <h4>Login</h4>
+                <form action=""></form>
+                <input type="email" placeholder="Email" class="form-control">
+                <br>
+                <input type="password" placeholder="password" class="form-control">
+                <br>
+                <input type="submit" value="Enter" class="btn btn-success" id="enter">
+                </form>
+
+            </div>
+        </div>
+        <section id="transaction-area">
+            <div id="inner__transaction-area">
+                <div class="deposit status blueviolet">
+                    <h4>Deposit</h4>
+                    <h2>$ <span id="currentDeposit">00</span></h2>
+                </div>
+                <div class="withdraw status tomato">
+                    <h4>Withdraw</h4>
+                    <h2>$00</h2>
+                </div>
+                <div class="balance status green">
+                    <h4>Balance</h4>
+                    <h2>$ <span id="currentBalance">00</span></h2>
+                </div>
+            </div>
+            <div class="row container">
+                <div class="col-md-6">
+                    <div class="submit-area">
+                        <h4>Deposit</h4>
+                        <input id="depositAmount" type="text" class="form-control" placeholder="$ amount you want to deposit">
+                        <br>
+                        <button class="btn btn-success" id="depositAdd">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="submit-area">
+                        <h4>Withdraw</h4>
+                        <input type="text" class="form-control" placeholder="$ amount you want to withdraw">
+                        <br>
+                        <button class="btn btn-success" >Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script>
+        // login button event handler.
+        document.getElementById('enter').addEventListener('click', function (event) {
+            document.getElementById('login-area').style.display = 'none';
+            document.getElementById('transaction-area').style.display = 'block';
+
+        })
+
+        // deposit button event handler.
+        document.getElementById('depositAdd').addEventListener('click', function (event) {
+            const depositAmount = document.getElementById('depositAmount').value;
+            const depositNumber = parseFloat(depositAmount);
+            document.getElementById('depositAmount').value = '';
+   
+            updateSpanText("currentDeposit", depositNumber);
+            updateSpanText("currentBalance", depositNumber);
+                        
+        })
+        function updateSpanText(id, addNumber) {
+            const current = document.getElementById(id).innerText;
+            const currentNumber = parseFloat(current);
+            const total = addNumber + currentNumber;
+            document.getElementById(id).innerText = total;
+        }
+
+        // withdraw event handler .
+
+
+
+
+    </script>
+</body>
+
+</html>
