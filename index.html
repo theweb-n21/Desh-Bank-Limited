@@ -31,11 +31,11 @@
             <div id="inner__transaction-area">
                 <div class="deposit status blueviolet">
                     <h4>Deposit</h4>
-                    <h2>$ <span id="currentDeposit">00</span></h2>
+                    <h2>$<span id="currentDeposit">00</span></h2>
                 </div>
                 <div class="withdraw status tomato">
                     <h4>Withdraw</h4>
-                    <h2>$00</h2>
+                    <h2>$<span id="currentWithdraw">00</span></h2>
                 </div>
                 <div class="balance status green">
                     <h4>Balance</h4>
@@ -46,7 +46,8 @@
                 <div class="col-md-6">
                     <div class="submit-area">
                         <h4>Deposit</h4>
-                        <input id="depositAmount" type="text" class="form-control" placeholder="$ amount you want to deposit">
+                        <input id="depositAmount" type="text" class="form-control"
+                            placeholder="$ amount you want to deposit">
                         <br>
                         <button class="btn btn-success" id="depositAdd">Deposit</button>
                     </div>
@@ -54,9 +55,10 @@
                 <div class="col-md-6">
                     <div class="submit-area">
                         <h4>Withdraw</h4>
-                        <input type="text" class="form-control" placeholder="$ amount you want to withdraw">
+                        <input id="withdrawAmount" type="text" class="form-control"
+                            placeholder="$ amount you want to withdraw">
                         <br>
-                        <button class="btn btn-success" >Withdraw</button>
+                        <button class="btn btn-success" id="addWithdraw">Withdraw</button>
                     </div>
                 </div>
             </div>
@@ -73,14 +75,13 @@
 
         // deposit button event handler.
         document.getElementById('depositAdd').addEventListener('click', function (event) {
-            const depositAmount = document.getElementById('depositAmount').value;
-            const depositNumber = parseFloat(depositAmount);
-            document.getElementById('depositAmount').value = '';
-   
+            const depositNumber = parseFloatValue('depositAmount');
+
             updateSpanText("currentDeposit", depositNumber);
             updateSpanText("currentBalance", depositNumber);
-                        
+
         })
+
         function updateSpanText(id, addNumber) {
             const current = document.getElementById(id).innerText;
             const currentNumber = parseFloat(current);
@@ -89,10 +90,24 @@
         }
 
         // withdraw event handler .
+        document.getElementById('addWithdraw').addEventListener('click', function (event) {
+            const withdrawAmountNumber = parseFloatValue('withdrawAmount');
+
+
+            updateSpanText('currentWithdraw', withdrawAmountNumber);
 
 
 
+        })
 
+        function parseFloatValue(id) {
+            const amount = document.getElementById(id).value;
+            const amountNumber = parseFloat(amount);
+            document.getElementById(id).value = '';
+
+            return amountNumber;
+
+        }
     </script>
 </body>
 
